@@ -1,0 +1,286 @@
+/*
+-----------------------------------------
+reset
+-----------------------------------------
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+div, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+figure, header, nav, section, article, aside, footer, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.clearfix:after{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix{
+    display: inline-block;
+}
+
+html[xmlns] .clearfix{
+    display: block;
+}
+
+* html .clearfix{
+    height: 1%;
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none !important;
+}
+
+header, nav, section, article, aside, footer, hgroup {
+    display: block;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: clamp(
+        .5rem, 5vh, 1rem
+    );
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--accentColor);
+}
+
+a{
+    text-decoration: none; !important;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul{
+    margin-bottom: 0;
+}
+
+/*
+-----------------------------------------
+custom vars
+-----------------------------------------
+*/
+:root{
+    --header-height: clamp(2rem, 10vh, 5rem);
+
+    --primaryColor: #0d6efd;
+    --accentColor: #f8f9fa;
+}
+/*
+-----------------------------------------
+Global css
+-----------------------------------------
+*/
+
+.mainButton{
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    color: #0d6efd;
+    border: 0.15rem solid var(--primaryColor);
+    transition: background-color, color 0.5s;
+}
+
+.mainButton:hover{
+    background-color: var(--primaryColor);
+    color: white;
+}
+
+/*
+-----------------------------------------
+TOP header
+-----------------------------------------
+*/
+
+.topHeader{
+    z-index: 1;
+    background-color: black;
+}
+
+.topHeader a::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--primaryColor);
+    left: 0;
+    bottom: 0;
+    transition: width 0.5s;
+}
+
+.topHeader a:hover::after {
+    width: 100%;
+}
+
+.topHeader button {
+    border: 1px solid white;
+    padding: .3rem .5rem;
+    margin: .5rem;
+    transition: border, color 0.5s;
+}
+
+.topHeader button:hover {
+    border-color: var(--primaryColor);
+    color: var(--primaryColor);
+}
+
+/*
+-----------------------------------------
+Header
+-----------------------------------------
+*/
+
+header{
+    padding-top: var(--header-height);
+}
+
+/*
+-----------------------------------------
+Main
+-----------------------------------------
+*/
+
+main section{
+    padding: 3rem 0;
+}
+
+.sectionHeader {
+    text-align: center;
+}
+
+.sectionHeader h2{
+    position: relative;
+    color: var(--primaryColor);
+    margin-bottom: 3rem;
+}
+
+.sectionHeader h2::after{
+    content: "";
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    height: 2px;
+    bottom: -1rem;
+    background-color: var(--primaryColor);
+}
+
+.sectionHeader p {
+    margin: 0;
+    padding: 1rem;
+    line-height: 2.5rem;
+}
+
+/*
+-----------------------------------------
+Main (Categories)
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+Main (Contact Form)
+-----------------------------------------
+*/
+
+.contactForm {
+    background-image: url('data:image/svg+xml,<svg id="visual" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="200" height="200" fill="%231e4b8f"></rect><defs><linearGradient id="grad1_0" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="30%" stop-color="%231e4b8f" stop-opacity="1"></stop><stop offset="70%" stop-color="%231e4b8f" stop-opacity="1"></stop></linearGradient></defs><defs><linearGradient id="grad2_0" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="30%" stop-color="%231e4b8f" stop-opacity="1"></stop><stop offset="70%" stop-color="%231e4b8f" stop-opacity="1"></stop></linearGradient></defs><g transform="translate(200, 200)"><path d="M-99 0C-90 -13.5 -81 -27.1 -73.6 -42.5C-66.2 -57.9 -60.5 -75.3 -48.5 -84C-36.5 -92.7 -18.3 -92.9 0 -93L0 0Z" fill="%23235a91"></path></g><g transform="translate(0, 0)"><path d="M84 0C88.1 17.8 92.2 35.6 85.7 49.5C79.2 63.4 62.1 73.6 46 79.7C29.9 85.8 15 87.9 0 90L0 0Z" fill="%23235a91"></path></g></svg>');
+    background-size: cover;
+    padding: 3rem 2rem;
+}
+
+.contactForm h3 {
+    color: #fff;
+    margin-bottom: 3rem;
+}
+
+.contactForm input {
+    width: 75%;
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    border: 0.1rem solid #f8f9fa;
+    background-color: transparent;
+}
+
+.contactForm input::placeholder {
+    color: #fff;
+}
+
+.contactForm textarea {
+    width: 75%;
+    padding: .5rem 1rem;
+    border: 0.1rem solid #f8f9fa;
+    background-color: transparent
+}
+
+.contactForm textarea::placeholder {
+    color: #fff;
+}
+
+.contactForm button{
+    border: 2px solid #f8f9fa;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    padding: .5rem 3rem;
+}
+
+/*
+-----------------------------------------
+Main (About)
+-----------------------------------------
+*/
+
+.roundedImage{
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--primaryColor);
+    border-radius: 4rem;
+}
+
+.roundedImage img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
+    filter: invert(100%) sepia(0%) saturate(523%) hue-rotate(127deg) brightness(103%) contrast(102%);
+}
+
+/*
+-----------------------------------------
+Footer
+-----------------------------------------
+*/
+
+
+
