@@ -16,28 +16,28 @@
                               aria-expanded="false">
                             Товари
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item dropend">
-                                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        Металеві кола
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown-item"><a class="nav-link" href="#">SMTH</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="#">SMTH</a></li>
-                                    </ul>
-                            </li>
-                            <li class="nav-item dropend">
-                                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    Металеві кола
-                                </a>
+                        {% if categories %}
+                          <ul class="dropdown-menu">
+                            {% for category in categories %}
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">{{ category.name }}</a>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item"><a class="nav-link" href="#">SMTH</a></li>
-                                    <li class="dropdown-item"><a class="nav-link" href="#">SMTH</a></li>
+                                  {% if category.products %}
+                                    {% for product in category.products %}
+                                      <li>
+                                        <a class="dropdown-item" href="#">{{ product.name }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  {% else %}
+                                    <li>
+                                      <a class="dropdown-item" href="#">No products available</a>
+                                    </li>
+                                  {% endif %}
                                 </ul>
-                            </li>
-                        </ul>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -46,10 +46,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item">
-
+                                <!-- Послуга 1 -->
                             </li>
                             <li class="dropdown-item">
-
+                                <!-- Послуга 2 -->
                             </li>
                         </ul>
                     </li>
