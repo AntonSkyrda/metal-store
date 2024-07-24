@@ -12,13 +12,24 @@ class Category(models.Model):
         return f"{self.name}"
 
 
-class SubCategory(models.Model):
+class Sizes(models.Model):
+    size = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ("size",)
+        verbose_name_plural = "sizes"
+
+    def __str__(self):
+        return f"{self.size}"
+
+
+class CategorySizes(models.Model):
     name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    size = models.ManyToManyField(Sizes, related_name="category_sizes", blank=True)
 
     class Meta:
         ordering = ("name",)
-        verbose_name_plural = "subcategories"
+        verbose_name_plural = "categories sizes"
 
     def __str__(self):
         return f"{self.name}"
@@ -27,73 +38,18 @@ class SubCategory(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
     price = models.CharField(max_length=255)
-    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name="categories"
+    )
     steel_mark = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to="images", null=True, blank=True)
+    sizes = models.ManyToManyField(CategorySizes, related_name="sizes", blank=True)
 
     class Meta:
-        abstract = True
-
-
-class MetalCircleSizes(models.Model):
-    size = models.IntegerField()
-
-    class Meta:
-        ordering = ("size",)
-        verbose_name_plural = "metal circle sizes"
-
-    def __str__(self):
-        return f"{self.size}"
-
-
-class MetalCircle(Product):
-    sizes = models.ManyToManyField(MetalCircleSizes, related_name="metal_circles")
-
-    class Meta:
-        ordering = ("steel_mark",)
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-class MetalSheetsSizes(models.Model):
-    size = models.IntegerField()
-
-    class Meta:
-        ordering = ("size",)
-        verbose_name_plural = "metal sheets sizes"
-
-    def __str__(self):
-        return f"{self.size}"
-
-
-class MetalSheet(Product):
-    sizes = models.ManyToManyField(MetalSheetsSizes, related_name="metal_sheets")
-
-    class Meta:
-        ordering = ("steel_mark",)
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-class MetalPipeSizes(models.Model):
-    size = models.IntegerField()
-
-    class Meta:
-        ordering = ("size",)
-        verbose_name_plural = "metal pipes sizes"
-
-    def __str__(self):
-        return f"{self.size}"
-
-
-class MetalPipe(Product):
-    sizes = models.ManyToManyField(MetalPipeSizes, related_name="metal_pipes")
-
-    class Meta:
-        ordering = ("steel_mark",)
+        ordering = ("name",)
 
     def __str__(self):
         return f"{self.name}"

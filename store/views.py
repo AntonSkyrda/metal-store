@@ -3,13 +3,7 @@ from django.views import generic
 
 from .models import (
     Category,
-    SubCategory,
-    MetalCircle,
-    MetalCircleSizes,
-    MetalSheet,
-    MetalSheetsSizes,
-    MetalPipe,
-    MetalPipeSizes,
+    Product,
 )
 
 
@@ -17,28 +11,10 @@ def index(request):
     return render(request, "store/index.html")
 
 
-class MetalCircleListView(generic.ListView):
-    model = MetalCircle
+class ProductListView(generic.ListView):
+    model = Product
     paginate_by = 10
 
 
-class MetalCircleDetailView(generic.DetailView):
-    model = MetalCircle
-
-
-class MetalSheetListView(generic.ListView):
-    model = MetalSheet
-    paginate_by = 10
-
-
-class MetalSheetDetailView(generic.DetailView):
-    model = MetalSheet
-
-
-class MetalPipeListView(generic.ListView):
-    model = MetalPipe
-    paginate_by = 10
-
-
-class MetalPipeDetailView(generic.DetailView):
-    model = MetalPipe
+class ProductDetailView(generic.DetailView):
+    model = Product
