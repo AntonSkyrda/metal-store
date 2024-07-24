@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-lg-4 g-4 g-lg-3">
+      <article class="col">
+        <div class="card text-center">
+          <i class="d-inline-flex bi bi-card-image card-img-top align-items-center justify-content-center pb-2 pt-1"></i> <!--image here-->
+          <div class="card-body">
+            <h5 class="card-title pb-3">Product Title</h5>
+            <p class="card-text pb-2 text-start">Product Description</p>
+            <p class="card-text pb-4 text-start"><span>Price</span></p>
+            <button class="mainButton">
+              Show More
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+{% endblock %}
