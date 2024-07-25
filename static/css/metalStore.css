@@ -105,8 +105,9 @@ Global css
     padding: 0.5rem 2rem;
     font-size: 1rem;
     color: #0d6efd;
+    background-color: transparent;
     border: 0.15rem solid var(--primaryColor);
-    transition: background-color, color 0.5s;
+    transition: all 0.5s;
 }
 
 .mainButton:hover{
@@ -142,9 +143,10 @@ TOP header
 
 .topHeader button {
     border: 1px solid white;
+    color: white;
     padding: .3rem .5rem;
     margin: .5rem;
-    transition: border, color 0.5s;
+    transition: all 0.5s;
 }
 
 .topHeader button:hover {
@@ -303,6 +305,52 @@ Main (About)
 Footer
 -----------------------------------------
 */
+footer{
+    margin-top: auto;
+    width: 100%;
+}
+
+/*
+-----------------------------------------
+Product List
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+Product Details
+-----------------------------------------
+*/
+
+.productCategory{
+    text-transform: uppercase;
+    color: var(--primaryColor);
+}
+
+.productTitle{
+    font-size: 2.5rem;
+}
+
+.quantity input {
+    border-radius: 0;
+}
+
+.productButton {
+    text-transform: capitalize;
+    background-color: var(--primaryColor);
+    color: white;
+    width: 13rem;
+    height: 2.5rem;
+    border-radius: 0;
+}
+
+.productButton:hover {
+    background-color: var(--primaryColor) !important;
+    font-size: 1.2rem;
+    color: white !important;
+}
+
+
 
 
 

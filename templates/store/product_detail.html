@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="productDetail container my-3">
+        <div class="row">
+            <div class="productMainImg col-lg-5">
+                    <img src="" alt="productImage" class="img-fluid">
+            </div>
+            <div class="col-lg-7">
+                <div class="productMainDescription px-2">
+                    <h6 class="productCategory text-bold my-3">Category: Product category</h6>
+                    <h1 class="productTitle text-bold my-3">Product Title</h1>
+                    <p class="productPrice mb-5">Product Price</p>
+                    <div class="d-flex flex-row mb-5">
+                        <div class="">
+                            <button class="shadow btn productButton me-2">
+                                Додати до корзини
+                            </button>
+                        </div>
+                        <div class="quantity">
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    id="cartQuantity"
+                                    value="1"
+                                    min="1"
+                                    max="5"
+                                    placeholder="quantity"
+                                    name="cartQuantity">
+                        </div>
+                    </div>
+                </div>
+                <div class="productDetails my-4">
+                    <p class="productDetailsTitle text-color mb-1">Product Details</p>
+                    <p class="productDetailsDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi odio recusandae aliquid ad impedit autem commodi earum voluptatem laboriosam? </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
