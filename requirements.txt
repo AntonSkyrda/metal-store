@@ -1,2 +1,4 @@
 pillow~=10.4.0
 Django~=5.0.7
+cloudinary==1.40.0
+django-cloudinary-storage==0.3.0
