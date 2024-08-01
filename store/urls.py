@@ -8,8 +8,8 @@ from .views import (
 
 urlpatterns = [
     path("", index, name="index"),
-    path("metal-circles/", ProductListView.as_view(), name="metal-circle-list"),
-    path("metal-circles/<int:pk>/", ProductDetailView.as_view(), name="metal-circle-details")
+    path("products/", ProductListView.as_view(), name="product-list"),
+    path("products/<int:pk>/", ProductDetailView.as_view(), name="product-detail"),
 ]
 
 app_name = "store"

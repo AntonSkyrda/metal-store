@@ -45,7 +45,7 @@ class Product(models.Model):
     )
     steel_mark = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to="images", null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
     sizes = models.ManyToManyField(CategorySizes, related_name="sizes", blank=True)
 
     class Meta:
