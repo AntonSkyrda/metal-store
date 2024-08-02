@@ -6,10 +6,6 @@ from .models import (
 )
 
 
-def index(request):
-    return render(request, "store/index.html")
-
-
 class ProductListView(generic.ListView):
     model = Product
     paginate_by = 10
