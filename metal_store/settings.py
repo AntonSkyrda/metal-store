@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "cloudinary",
     "cloudinary_storage",
     "store",
+    "contacts"
 ]
 
 MIDDLEWARE = [
