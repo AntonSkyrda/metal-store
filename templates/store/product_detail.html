@@ -2,10 +2,10 @@
 {% block content %}
     <section class="productDetail container my-3">
         <div class="row">
-            <div class="productMainImg col-lg-5">
+            <figure class="productMainImg col-lg-5">
                     <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
-            </div>
-            <div class="col-lg-7">
+            </figure>
+            <article class="col-lg-7">
                 <div class="productMainDescription px-2">
                     <h6 class="productCategory text-bold my-3">Категорія: {{ product.category }}</h6>
                     <h1 class="productTitle text-bold my-3">{{ product.title }}</h1>
@@ -35,7 +35,7 @@
                       {{ product.description }}
                     </p>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 {% endblock %}
