@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-  <main>
+<main xmlns="http://www.w3.org/1999/html">
     <section id="categories" class='row justify-content-center align-items-center'>
       <div class="row justify-content-center pb-3 m-0 sectionHeader">
         <h2 class='col-lg-6 col-12'>Категорії</h2>
@@ -14,7 +14,7 @@
       <article>
       </article>
       <button class="mainButton col-lg-2 col-10">
-        Переглянути всі товари
+        <a href="{% url 'store:product-list' %}">Переглянути всі товари</a>
       </button>
     </section>
     <section id="contacts" class='bg-white'>
@@ -43,28 +43,26 @@
             {% endif %}
           </table>
         </address>
-        <form action="" method="post" class="contactForm col-lg-4 col-12">
+        <form action="" method="post" id="contactForm" class="contactForm col-lg-4 col-12">
           <h3>Заповніть форму і ми вам передзвонимо протягом дня.</h3>
-          {#                <p>#}
-          {#                    <input type="text" id="name" name="name" required placeholder="Ім'я">#}
-          {#                </p>#}
-          {#                <p>#}
-          {#                    <input type="tel" id="phone" name="phone" required placeholder="Номер телефону">#}
-          {#                </p>#}
-          {#                <p>#}
-          {#                    <textarea#}
-          {#                            name="massage"#}
-          {#                            id="massage"#}
-          {#                            rows="5"#}
-          {#                            cols="50"#}
-          {#                            required#}
-          {#                            placeholder="Повідомлення"#}
-          {#                    ></textarea>#}
-          {#                </p>#}
           {% csrf_token %}
-          {{ form.as_p }}
-          
-          <button type="submit">Надіслати</button>
+            <p>
+                {{ form.name }}
+                <label for="id_name" class="inputLabel">Імʼя</label>
+            </p>
+            <p>
+                {{ form.phone_number }}
+                <label for="id_phone_number" class="inputLabel">Номер Телефону</label>
+            </p>
+            <p>
+                {{ form.email }}
+                <label for="id_email" class="inputLabel">Email</label>
+            </p>
+            <p>
+                {{ form.message }}
+                <label for="id_message" class="inputLabel">Повідомлення</label>
+            </p>
+      <button type="submit">Надіслати</button>
         </form>
       </div>
     </section>
