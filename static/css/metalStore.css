@@ -245,27 +245,34 @@ Main (Contact Form)
     margin-bottom: 3rem;
 }
 
-.contactForm input {
+.contactForm p {
+    position: relative;
+}
+
+.contactForm input, textarea {
     width: 75%;
     padding: .5rem 1rem;
-    margin-bottom: .5rem;
+    margin-bottom: .9rem;
     border: 0.1rem solid #f8f9fa;
+    outline: none;
+    border-radius: 0.5rem;
     background-color: transparent;
 }
 
-.contactForm input::placeholder {
-    color: #fff;
+.contactForm .inputLabel {
+    position: absolute;
+    left: 4.5em;
+    top: 0.6em;
+    color: white;
 }
 
-.contactForm textarea {
-    width: 75%;
-    padding: .5rem 1rem;
-    border: 0.1rem solid #f8f9fa;
-    background-color: transparent
-}
+/*.contactForm input:focus ~ label,*/
+/*.contactForm textarea:focus ~ label{*/
+/*    display: none;*/
+/*}*/
 
-.contactForm textarea::placeholder {
-    color: #fff;
+.contactForm .hidden {
+    display: none;
 }
 
 .contactForm button{

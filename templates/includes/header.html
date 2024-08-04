@@ -19,13 +19,13 @@
                         {% if categories %}
                           <ul class="dropdown-menu">
                             {% for category in categories %}
-                              <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">{{ category.name }}</a>
+                              <li class="nav-item dropend">
+                                <a class="dropdown-item dropdown-toggle" href="{% url 'store:product-list' %}">{{ category.name }}</a>
                                 <ul class="dropdown-menu">
                                   {% if category.products %}
                                     {% for product in category.products %}
                                       <li>
-                                        <a class="dropdown-item" href="#">{{ product.name }}</a>
+                                        <a class="dropdown-item" href="{% url 'store:product-detail' product.pk %}">{{ product.name }}</a>
                                       </li>
                                     {% endfor %}
                                   {% else %}

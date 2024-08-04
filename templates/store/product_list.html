@@ -7,8 +7,6 @@
         {% for product in product_list %}
           <article class="col">
             <div class="card text-center">
-              <i class="d-inline-flex bi bi-card-image card-img-top align-items-center justify-content-center pb-2 pt-1">
-              </i>
               <img src="{{ product.image.url }}" alt="{{ product.name }}">
               <div class="card-body">
                 <h5 class="card-title pb-3">{{ product.name }}</h5>
