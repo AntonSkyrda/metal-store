@@ -1,41 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-    <section class="productDetail container my-3">
-        <div class="row">
-            <figure class="productMainImg col-lg-5">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
-            </figure>
-            <article class="col-lg-7">
-                <div class="productMainDescription px-2">
-                    <h6 class="productCategory text-bold my-3">Категорія: {{ product.category }}</h6>
-                    <h1 class="productTitle text-bold my-3">{{ product.title }}</h1>
-                    <p class="productPrice mb-5">{{ product.price }}</p>
-                    <div class="d-flex flex-row mb-5">
-                        <div class="">
-                            <button class="shadow btn productButton me-2">
-                                Додати до корзини
-                            </button>
-                        </div>
-                        <div class="quantity">
-                            <input
-                                    type="number"
-                                    class="form-control"
-                                    id="cartQuantity"
-                                    value="1"
-                                    min="1"
-                                    max="5"
-                                    placeholder="quantity"
-                                    name="cartQuantity">
-                        </div>
+<section class="product-detail container my-3">
+    <div class="row">
+        <figure class="product-main-img col-lg-5">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+        </figure>
+        <article class="col-lg-7">
+            <div class="product-main-description px-2">
+                <h6 class="product-category text-bold my-3">Категорія: {{ product.category }}</h6>
+                <h1 class="product-title text-bold my-3">{{ product.title }}</h1>
+                <p class="product-price mb-5">{{ product.price }}</p>
+                <div class="d-flex flex-row mb-5">
+                    <div class="">
+                        <button class="shadow btn product-button me-2">
+                            Додати до корзини
+                        </button>
+                    </div>
+                    <div class="quantity">
+                        <input
+                                type="number"
+                                class="form-control"
+                                id="cartQuantity"
+                                value="1"
+                                min="1"
+                                max="5"
+                                placeholder="quantity"
+                                name="cartQuantity">
                     </div>
                 </div>
-                <div class="productDetails my-4">
-                    <p class="productDetailsTitle text-color mb-1">Про товар</p>
-                    <p class="productDetailsDescription">
-                      {{ product.description }}
-                    </p>
-                </div>
-            </article>
-        </div>
-    </section>
+            </div>
+            <div class="product-details my-4">
+                <p class="product-details-title text-color mb-1">Про товар</p>
+                <p class="product-details-description">
+                    {{ product.description }}
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
 {% endblock %}
