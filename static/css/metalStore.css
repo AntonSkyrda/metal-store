@@ -98,35 +98,36 @@ Global css
 -----------------------------------------
 */
 
-.mainButton{
+.main-button{
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0.5rem 2rem;
     font-size: 1rem;
-    color: #0d6efd;
+    color: var(--primaryColor);
     background-color: transparent;
     border: 0.15rem solid var(--primaryColor);
     transition: all 0.5s;
 }
 
-.mainButton:hover{
+.main-button:hover{
     background-color: var(--primaryColor);
+}
+.main-button:hover a{
     color: white;
 }
-
 /*
 -----------------------------------------
 TOP header
 -----------------------------------------
 */
 
-.topHeader{
+.top-header{
     z-index: 1;
     background-color: black;
 }
 
-.topHeader a::after {
+.top-header .contact-links a::after {
     position: absolute;
     content: '';
     width: 0;
@@ -137,11 +138,11 @@ TOP header
     transition: width 0.5s;
 }
 
-.topHeader a:hover::after {
+.top-header .contact-links a:hover::after {
     width: 100%;
 }
 
-.topHeader button {
+.top-header button {
     border: 1px solid white;
     color: white;
     padding: .3rem .5rem;
@@ -149,9 +150,63 @@ TOP header
     transition: all 0.5s;
 }
 
-.topHeader button:hover {
+.top-header button a {
+    color: white;
+    transition: all 0.5s;
+}
+
+.top-header button:hover {
     border-color: var(--primaryColor);
     color: var(--primaryColor);
+}
+
+.top-header button:hover a {
+    color: var(--primaryColor);
+}
+
+/*
+-----------------------------------------
+Modal Form
+-----------------------------------------
+*/
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+
+    padding: 6rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 5rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
 /*
@@ -196,17 +251,17 @@ main section{
     padding: 3rem 0;
 }
 
-.sectionHeader {
+.section-header {
     text-align: center;
 }
 
-.sectionHeader h2{
+.section-header h2{
     position: relative;
     color: var(--primaryColor);
     margin-bottom: 3rem;
 }
 
-.sectionHeader h2::after{
+.section-header h2::after{
     content: "";
     position: absolute;
     width: 10%;
@@ -216,7 +271,7 @@ main section{
     background-color: var(--primaryColor);
 }
 
-.sectionHeader p {
+.section-header p {
     margin: 0;
     padding: 1rem;
     line-height: 2.5rem;
@@ -234,22 +289,18 @@ Main (Contact Form)
 -----------------------------------------
 */
 
-.contactForm {
+.contact-form {
     background-image: url('data:image/svg+xml,<svg id="visual" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="200" height="200" fill="%231e4b8f"></rect><defs><linearGradient id="grad1_0" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="30%" stop-color="%231e4b8f" stop-opacity="1"></stop><stop offset="70%" stop-color="%231e4b8f" stop-opacity="1"></stop></linearGradient></defs><defs><linearGradient id="grad2_0" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="30%" stop-color="%231e4b8f" stop-opacity="1"></stop><stop offset="70%" stop-color="%231e4b8f" stop-opacity="1"></stop></linearGradient></defs><g transform="translate(200, 200)"><path d="M-99 0C-90 -13.5 -81 -27.1 -73.6 -42.5C-66.2 -57.9 -60.5 -75.3 -48.5 -84C-36.5 -92.7 -18.3 -92.9 0 -93L0 0Z" fill="%23235a91"></path></g><g transform="translate(0, 0)"><path d="M84 0C88.1 17.8 92.2 35.6 85.7 49.5C79.2 63.4 62.1 73.6 46 79.7C29.9 85.8 15 87.9 0 90L0 0Z" fill="%23235a91"></path></g></svg>');
     background-size: cover;
     padding: 3rem 2rem;
 }
 
-.contactForm h3 {
+.contact-form h3 {
     color: #fff;
     margin-bottom: 3rem;
 }
 
-.contactForm p {
-    position: relative;
-}
-
-.contactForm input, textarea {
+.contact-form input,textarea{
     width: 75%;
     padding: .5rem 1rem;
     margin-bottom: .9rem;
@@ -259,28 +310,20 @@ Main (Contact Form)
     background-color: transparent;
 }
 
-.contactForm .inputLabel {
-    position: absolute;
-    left: 4.5em;
-    top: 0.6em;
+.contact-form input::placeholder, textarea::placeholder {
     color: white;
 }
 
-/*.contactForm input:focus ~ label,*/
-/*.contactForm textarea:focus ~ label{*/
-/*    display: none;*/
-/*}*/
-
-.contactForm .hidden {
-    display: none;
-}
-
-.contactForm button{
+.contact-form button{
     border: 2px solid #f8f9fa;
     background-color: transparent;
     color: white;
     text-transform: uppercase;
     padding: .5rem 3rem;
+}
+
+.error {
+    margin-bottom: .9rem;
 }
 
 /*
@@ -289,7 +332,7 @@ Main (About)
 -----------------------------------------
 */
 
-.roundedImage{
+.rounded-image{
     position: relative;
     width: 5rem;
     height: 5rem;
@@ -297,7 +340,7 @@ Main (About)
     border-radius: 4rem;
 }
 
-.roundedImage img{
+.rounded-image img{
     position: absolute;
     top: 0;
     left: 0;
@@ -329,12 +372,12 @@ Product Details
 -----------------------------------------
 */
 
-.productCategory{
+.product-category{
     text-transform: uppercase;
     color: var(--primaryColor);
 }
 
-.productTitle{
+.product-title{
     font-size: 2.5rem;
 }
 
@@ -342,7 +385,7 @@ Product Details
     border-radius: 0;
 }
 
-.productButton {
+.product-button {
     text-transform: capitalize;
     background-color: var(--primaryColor);
     color: white;
@@ -351,7 +394,7 @@ Product Details
     border-radius: 0;
 }
 
-.productButton:hover {
+.product-button:hover {
     background-color: var(--primaryColor) !important;
     font-size: 1.2rem;
     color: white !important;

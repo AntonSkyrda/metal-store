@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="productsList container mt-5 mb-5">
+<section class="productsList container mt-5 mb-5">
     <div class="row row-cols-1 row-cols-lg-4 g-4 g-lg-3">
-      {% if product_list %}
+        {% if product_list %}
         {% for product in product_list %}
-          <article class="col">
+        <article class="col">
             <div class="card text-center">
-              <img src="{{ product.image.url }}" alt="{{ product.name }}">
-              <div class="card-body">
-                <h5 class="card-title pb-3">{{ product.name }}</h5>
-                <p class="card-text pb-2 text-start"></p>
-                <p class="card-text pb-4 text-start"><span>{{ product.price }}</span></p>
-                <button class="mainButton">
-                  <a href="{% url "store:product-detail" product.id %}">Show More</a>
-                </button>
-              </div>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title pb-3">{{ product.name }}</h5>
+                    <p class="card-text pb-2 text-start"></p>
+                    <p class="card-text pb-4 text-start"><span>{{ product.price }}</span></p>
+                    <button class="main-button">
+                        <a href="{% url 'store:product-detail' product.id %}">Show More</a>
+                    </button>
+                </div>
             </div>
-          </article>
+        </article>
         {% endfor %}
-      {% endif %}
+        {% endif %}
     </div>
-  </section>
+</section>
 {% endblock %}
