@@ -1,10 +1,5 @@
 from .models import Category
-
-
-# def add_categories(request):
-#     categories = Category.objects.all()
-#
-#     return {'categories': categories}
+from .forms import ProductSearchForm
 
 
 def add_categories(request):
@@ -19,3 +14,7 @@ def add_categories(request):
         ]
     }
     return context
+
+
+def product_search(request):
+    return {"form": ProductSearchForm()}

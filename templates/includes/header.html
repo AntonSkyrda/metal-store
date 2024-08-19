@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="{% url 'store:product-list' %}" role="button" data-bs-toggle="dropdown"
                               aria-expanded="false">
                             Товари
                         </a>
@@ -39,20 +39,6 @@
                           </ul>
                         {% endif %}
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Послуги
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <!-- Послуга 1 -->
-                            </li>
-                            <li class="dropdown-item">
-                                <!-- Послуга 2 -->
-                            </li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">Про нас</a>
                     </li>
@@ -60,9 +46,8 @@
                         <a class="nav-link" href="#footer">Як нас знайти?</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Пошук товарів"
-                           aria-label="Search"/>
+                <form class="d-flex" role="search" method="get" action="{% url "store:product-list" %}">
+                    {{ search_form.as_p }}
                     <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
                 </form>
             </div>
