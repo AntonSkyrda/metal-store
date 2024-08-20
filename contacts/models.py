@@ -13,6 +13,21 @@ class PhoneNumber(models.Model):
         return f"{self.name} {self.phone_number}"
 
 
+class WorkSchedule(models.Model):
+    days = models.CharField(max_length=255)
+    hours = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.days} {self.hours}"
+
+
+class ContactEmail(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.email}"
+
+
 class CallBack(models.Model):
     name = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)

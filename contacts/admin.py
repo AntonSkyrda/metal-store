@@ -2,7 +2,9 @@ from django.contrib import admin
 
 from .models import (
     PhoneNumber,
-    CallBack
+    CallBack,
+    WorkSchedule,
+    ContactEmail,
 )
 
 
@@ -13,3 +15,5 @@ class CallBackAdmin(admin.ModelAdmin):
 
 admin.site.register(PhoneNumber)
 admin.site.register(CallBack)
+admin.site.register(WorkSchedule)
+admin.site.register(ContactEmail)
