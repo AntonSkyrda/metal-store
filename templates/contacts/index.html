@@ -2,170 +2,167 @@
 {% load static %}
 {% block content %}
 
-  <main>
+<main xmlns="http://www.w3.org/1999/html">
     <section id="categories" class='row justify-content-center align-items-center'>
-      <div class="row justify-content-center pb-3 m-0 sectionHeader">
-        <h2 class='col-lg-6 col-12'>Категорії</h2>
-        <p class='col-lg-8 col-12'> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Suspendisse faucibus porta ullamcorper.Aliquam quis placerat massa, vel dictum magna.
-          Suspendisse vestibulum leo vitae purus facilisis vehicula.
-          Integer tincidunt ac ante sit amet feugiat. Vivamus blandit tristique ante vitae vehicula.</p>
-      </div>
-      <article>
-      </article>
-      <button class="mainButton col-lg-2 col-10">
-        Переглянути всі товари
-      </button>
+        <div class="row justify-content-center pb-3 m-0 section-header">
+            <h2 class='col-lg-6 col-12'>Категорії</h2>
+            <p class='col-lg-8 col-12'> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse faucibus porta ullamcorper.Aliquam quis placerat massa, vel dictum magna.
+                Suspendisse vestibulum leo vitae purus facilisis vehicula.
+                Integer tincidunt ac ante sit amet feugiat. Vivamus blandit tristique ante vitae vehicula.</p>
+        </div>
+        <article>
+        </article>
+        <button class="main-button col-lg-2 col-10">
+            <a href="{% url 'store:product-list' %}">Переглянути всі товари</a>
+        </button>
     </section>
     <section id="contacts" class='bg-white'>
-      <div class="row justify-content-center pb-3 m-0 sectionHeader">
-        <h2 class='col-lg-6 col-12'>Зворотній зв'язок</h2>
-        <p class='col-lg-8 col-12'> Потрібна допомога або актуальний прайс-лист? Залиште свої
-          контактні дані, і ми зв'яжемося з Вами протягом дня, або зателефонуйте в наш контакт-центр.
-          Наши менеджери передзвонять Вам протягом дня та з радістю нададуть Вам всю необхідну
-          інформацію, чи допоможуть вирішити будь-які питання.</p>
-      </div>
-      <div class='row justify-content-center align-items-center text-center'>
-        <address class="col-lg-3 col-12 text-lg-start text-center">
-          <h3 class="mb-4">Наші контакти</h3>
-          <table class='d-inline-block text-start text-primary'>
-            {% if phone_numbers %}
-              {% for number in phone_numbers %}
-                <tr>
-                  <td class="d-inline-flex fw-bold bi bi-phone"></td>
-                  <td class="pb-3"><h5 class="fw-bold">{{ number.name }}</h5></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td class="pb-4"><a href="tel:380 95 66 54 123">{{ number.phone_number }}</a></td>
-                </tr>
-              {% endfor %}
-            {% endif %}
-          </table>
-        </address>
-        <form action="" method="post" class="contactForm col-lg-4 col-12">
-          <h3>Заповніть форму і ми вам передзвонимо протягом дня.</h3>
-          {#                <p>#}
-          {#                    <input type="text" id="name" name="name" required placeholder="Ім'я">#}
-          {#                </p>#}
-          {#                <p>#}
-          {#                    <input type="tel" id="phone" name="phone" required placeholder="Номер телефону">#}
-          {#                </p>#}
-          {#                <p>#}
-          {#                    <textarea#}
-          {#                            name="massage"#}
-          {#                            id="massage"#}
-          {#                            rows="5"#}
-          {#                            cols="50"#}
-          {#                            required#}
-          {#                            placeholder="Повідомлення"#}
-          {#                    ></textarea>#}
-          {#                </p>#}
-          {% csrf_token %}
-          {{ form.as_p }}
-          
-          <button type="submit">Надіслати</button>
-        </form>
-      </div>
+        <div class="row justify-content-center pb-3 m-0 section-header">
+            <h2 class='col-lg-6 col-12'>Зворотній зв'язок</h2>
+            <p class='col-lg-8 col-12'> Потрібна допомога або актуальний прайс-лист? Залиште свої
+                контактні дані, і ми зв'яжемося з Вами протягом дня, або зателефонуйте в наш контакт-центр.
+                Наши менеджери передзвонять Вам протягом дня та з радістю нададуть Вам всю необхідну
+                інформацію, чи допоможуть вирішити будь-які питання.</p>
+        </div>
+        <div class='row justify-content-center align-items-center text-center'>
+            <address class="col-lg-3 col-12 text-lg-start text-center">
+                <h3 class="mb-4">Наші контакти</h3>
+                <table class='d-inline-block text-start text-primary'>
+                    {% if phone_numbers %}
+                    {% for number in phone_numbers %}
+                    <tr>
+                        <td class="d-inline-flex fw-bold bi bi-phone"></td>
+                        <td class="pb-3"><h5 class="fw-bold">{{ number.name }}</h5></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="pb-4"><a href="tel:380 95 66 54 123">{{ number.phone_number }}</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+            </address>
+            <form action="/" method="post" id="contact-form" class="contact-form col-lg-4 col-12">
+                <h3>Заповніть форму і ми вам передзвонимо протягом дня.</h3>
+                {% csrf_token %}
+                <fieldset id="input-fields">
+                    <p>
+                        {{ form.name }}
+                    </p>
+                    <p>
+                        {{ form.phone_number }}
+                    </p>
+                    <p>
+                        {{ form.email }}
+                    </p>
+                    <p>
+                        {{ form.message }}
+                    </p>
+                </fieldset>
+                <button type="submit">Надіслати</button>
+            </form>
+        </div>
     </section>
     <section id="about" class='bg-tertiary'>
-      <div class="row justify-content-center pb-3 m-0 sectionHeader">
-        <h2 class='col-lg-6 col-12'>Про нас</h2>
-        <p class='col-lg-8 col-12'> Наші співробітники володіють усіма необхідними якостями,
-          щоб клієнт залишився задоволеним своєю покупкою.
-          Чому саме вам варто співпрацювати з нами? Розглядаючи переваги нашої організації,
-          варто звернути увагу на наступне:</p>
-      </div>
-      <article class="container">
-        <div class="row row-cols-1 row-cols-lg-3 g-4 g-lg-3">
-          <div class="col align-items-start">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <div class="roundedImage">
-                  <img
-                      class="card-img-start"
-                      src="{% static '/images/24-hours-timer-11314.svg' %}"
-                      alt="Пунктуальність"/>
-                </div>
-                <h5 class="card-title">Пунктуальність</h5>
-                <p class="card-text">Ми гарантуємо пунктуальність та своєчасність виконання замовлення.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col align-items-start">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <div class="roundedImage">
-                  <img
-                      class="card-img-start"
-                      src="{% static '/images/badge-1312.svg' %}"
-                      alt="Висока кваліфікація та професіоналізм"/>
-                </div>
-                <h5 class="card-title">Висока кваліфікація та професіоналізм</h5>
-                <p class="card-text">Висока кваліфікація та професіоналізм наших фахівців
-                  дозволяє виключити будь які помилки з нашого боку.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col align-items-start">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <div class="roundedImage">
-                  <img
-                      class="card-img-start"
-                      src="{% static '/images/empty-papers-or-sheet-black-outline-19844.svg' %}"
-                      alt="Широкий асортимент"/>
-                </div>
-                <h5 class="card-title">Широкий асортимент</h5>
-                <p class="card-text">Запорукою успіху є широкий асортимент сертифікованої продукції.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col align-items-start">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <div class="roundedImage">
-                  <img
-                      class="card-img-start"
-                      src="{% static '/images/calendar-11003.svg' %}"
-                      alt="Широкий асортимент"/>
-                </div>
-                <h5 class="card-title">Багаторічний досвід</h5>
-                <p class="card-text">Ми багато років працюємо на ринку металопрокату.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col align-items-start">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <div class="roundedImage">
-                  <img
-                      class="card-img-start"
-                      src="{% static '/images/sale-sticker-11295.svg' %}"
-                      alt="Система знижок"/>
-                </div>
-                <h5 class="card-title">Система знижок</h5>
-                <p class="card-text">Ми маємо систему знижок для постійних клієнтів.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col align-items-start">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <div class="roundedImage">
-                  <img
-                      class="card-img-start"
-                      src="{% static '/images/list-6240.svg' %}"
-                      alt="Різноманітні послуги."/>
-                </div>
-                <h5 class="card-title">Різноманітні послуги.</h5>
-                <p class="card-text">Виконуємо послуги з металообробки та виготовлення металовиробів на замовлення.</p>
-              </div>
-            </div>
-          </div>
+        <div class="row justify-content-center pb-3 m-0 section-header">
+            <h2 class='col-lg-6 col-12'>Про нас</h2>
+            <p class='col-lg-8 col-12'> Наші співробітники володіють усіма необхідними якостями,
+                щоб клієнт залишився задоволеним своєю покупкою.
+                Чому саме вам варто співпрацювати з нами? Розглядаючи переваги нашої організації,
+                варто звернути увагу на наступне:</p>
         </div>
-      </article>
+        <article class="container">
+            <div class="row row-cols-1 row-cols-lg-3 g-4 g-lg-3">
+                <div class="col align-items-start">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="rounded-image">
+                                <img
+                                        class="card-img-start"
+                                        src="{% static '/images/24-hours-timer-11314.svg' %}"
+                                        alt="Пунктуальність"/>
+                            </div>
+                            <h5 class="card-title">Пунктуальність</h5>
+                            <p class="card-text">Ми гарантуємо пунктуальність та своєчасність виконання замовлення.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col align-items-start">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="rounded-image">
+                                <img
+                                        class="card-img-start"
+                                        src="{% static '/images/badge-1312.svg' %}"
+                                        alt="Висока кваліфікація та професіоналізм"/>
+                            </div>
+                            <h5 class="card-title">Висока кваліфікація та професіоналізм</h5>
+                            <p class="card-text">Висока кваліфікація та професіоналізм наших фахівців
+                                дозволяє виключити будь які помилки з нашого боку.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col align-items-start">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="rounded-image">
+                                <img
+                                        class="card-img-start"
+                                        src="{% static '/images/empty-papers-or-sheet-black-outline-19844.svg' %}"
+                                        alt="Широкий асортимент"/>
+                            </div>
+                            <h5 class="card-title">Широкий асортимент</h5>
+                            <p class="card-text">Запорукою успіху є широкий асортимент сертифікованої продукції.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col align-items-start">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="rounded-image">
+                                <img
+                                        class="card-img-start"
+                                        src="{% static '/images/calendar-11003.svg' %}"
+                                        alt="Широкий асортимент"/>
+                            </div>
+                            <h5 class="card-title">Багаторічний досвід</h5>
+                            <p class="card-text">Ми багато років працюємо на ринку металопрокату.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col align-items-start">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="rounded-image">
+                                <img
+                                        class="card-img-start"
+                                        src="{% static '/images/sale-sticker-11295.svg' %}"
+                                        alt="Система знижок"/>
+                            </div>
+                            <h5 class="card-title">Система знижок</h5>
+                            <p class="card-text">Ми маємо систему знижок для постійних клієнтів.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col align-items-start">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="rounded-image">
+                                <img
+                                        class="card-img-start"
+                                        src="{% static '/images/list-6240.svg' %}"
+                                        alt="Різноманітні послуги."/>
+                            </div>
+                            <h5 class="card-title">Різноманітні послуги.</h5>
+                            <p class="card-text">Виконуємо послуги з металообробки та виготовлення металовиробів на
+                                замовлення.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
     </section>
-  </main>
+</main>
 
 {% endblock %}
