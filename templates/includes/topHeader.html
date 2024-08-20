@@ -7,10 +7,10 @@
             <div class="col-lg-9 col-6 d-flex justify-content-start">
                 <div class="row contact-links">
                     <i class="col-lg-6 bi bi-phone text-white d-flex align-items-center">
-                        <a class="position-relative text-white" href="tel:+380509269276"> +380 (50) 926-92-76</a></i>
+                        <a class="position-relative text-white" href="tel:+{{ phone_number.phone_number }}"> +{{ phone_number.phone_number }}</a></i>
                     <i class="col-lg-6 bi bi-envelope text-white d-flex align-items-center">
-                        <a class="position-relative text-white" href="mailto:metallkharkov@ukr.net">
-                            metallkharkov@ukr.net</a></i>
+                        <a class="position-relative text-white" href="mailto:{{ contact_email.email }}">
+                            {{ contact_email.email }}</a></i>
                 </div>
             </div>
             <div class="col-lg-3 col-6 d-flex justify-content-end">
