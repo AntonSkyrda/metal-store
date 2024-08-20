@@ -7,13 +7,13 @@
                 <h3 class="pb-5">Як нас знайти?</h3>
                 <address>
                     <h5>Графік роботи</h5>
-                    <p class="pb-3">ПН-ПТ, 9:00 - 18:00</p>
+                    <p class="pb-3"> {{ work_schedule.days }} {{ work_schedule.hours }}</p>
                     <h5>Адреса</h5>
                     <p class="pb-3">Україна, м. Харків, вул. Юр'ївська 17</p>
                     <h5>E-mail</h5>
-                    <p class="pb-3">metallkharkov@ukr.net</p>
+                    <p class="pb-3">{{ contact_email.email }}</p>
                     <h5>Телефон</h5>
-                    <p class="pb-3">+380 (50) 926-92-76</p>
+                    <p class="pb-3"> +{{ phone_number.phone_number }}</p>
                 </address>
             </div>
             <div class="col-lg-8 col-12">

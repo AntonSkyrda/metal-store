@@ -58,6 +58,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "store.context_processors.add_categories",
+                "contacts.context_processors.add_contact_data",
             ],
         },
     },
