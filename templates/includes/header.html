@@ -11,44 +11,53 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url 'store:product-list' %}" role="button" data-bs-toggle="dropdown"
-                              aria-expanded="false">
-                            Товари
-                        </a>
+                    <li class="nav-item dropdown" id="first-dropdown">
+                        <p class="d-inline-flex">
+                            <a class="nav-link" href="{% url 'store:product-list' %}">
+                                Товари
+                            </a>
+                            <button class="btn-span btn-dropdown">
+                                <span class="dropdown-toggle btn-dropend-span"></span>
+                            </button>
+                        </p>
                         {% if categories %}
-                          <ul class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             {% for category in categories %}
-                              <li class="nav-item dropend">
-                                <a class="dropdown-item dropdown-toggle" href="{% url 'store:product-list' %}">{{ category.name }}</a>
+                            <li class="nav-item dropend submenu submenu-md">
+                                <p class="d-inline-flex">
+                                    <a class="dropdown-item" href="{% url 'store:product-list' %}">{{ category.name }}</a>
+                                    <button class="btn-span btn-dropend">
+                                        <span class="dropdown-toggle btn-dropend-span"></span>
+                                    </button>
+                                </p>
                                 <ul class="dropdown-menu">
-                                  {% if category.products %}
+                                    {% if category.products %}
                                     {% for product in category.products %}
-                                      <li>
-                                        <a class="dropdown-item" href="{% url 'store:product-detail' product.pk %}">{{ product.name }}</a>
-                                      </li>
-                                    {% endfor %}
-                                  {% else %}
                                     <li>
-                                      <a class="dropdown-item" href="#">No products available</a>
+                                        <a class="dropdown-item" href="{% url 'store:product-detail' product.pk %}">{{ product.name }}</a>
                                     </li>
-                                  {% endif %}
+                                    {% endfor %}
+                                    {% else %}
+                                    <li>
+                                        <a class="dropdown-item" href="#">No products available</a>
+                                    </li>
+                                    {% endif %}
                                 </ul>
-                              </li>
+                            </li>
                             {% endfor %}
-                          </ul>
+                        </ul>
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Про нас</a>
+                        <a class="nav-link" href="/#about">Про нас</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">Як нас знайти?</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" method="get" action="{% url "store:product-list" %}">
-                    {{ search_form.as_p }}
-                    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+                <form class="d-inline-flex" id="search-form" role="search" method="get" action="{% url 'store:product-list' %}">
+                {{ search_form.as_p }}
+                <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
                 </form>
             </div>
         </div>

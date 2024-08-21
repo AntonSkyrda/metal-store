@@ -170,45 +170,6 @@ Modal Form
 -----------------------------------------
 */
 
-.hidden {
-    display: none;
-}
-
-.modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-
-    padding: 6rem;
-    border-radius: 5px;
-    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-    z-index: 10;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    z-index: 5;
-}
-
-.close-modal {
-    position: absolute;
-    top: 1.2rem;
-    right: 2rem;
-    font-size: 5rem;
-    color: #333;
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
 /*
 -----------------------------------------
 Header
@@ -219,27 +180,47 @@ header{
     padding-top: var(--header-height);
 }
 
-.dropend .dropdown-toggle{
-    margin-left: 1em;
+.btn-span {
+    border: none;
+    background: transparent;
 }
-.dropdown .dropdown-menu{
-    display: none;
+
+.dropend-active {
+   transform: rotate(90deg);
 }
-.dropdown:hover > .dropdown-menu, .dropend:hover > .dropdown-menu{
-    display: block;
-    margin-top: .125em;
-    margin-left: .125em;
-}
-@media screen and (min-width:992px) {
-    .dropend:hover > .dropdown-menu{
+
+@media (min-width: 768px) {
+    li.submenu-md ul.dropdown-menu[data-bs-popper] {
+        border-width: var(--bs-dropdown-border-width);
+        padding-top: var(--bs-dropdown-padding-y);
+        padding-bottom: var(--bs-dropdown-padding-y);
+        margin-top: -0.5em;
+    }
+
+    li.submenu-md ul.dropdown-menu[data-bs-popper] li {
+        margin-left: 0;
+    }
+
+    li.submenu-md button {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    li.submenu-md.dropend ul.dropdown-menu[data-bs-popper] {
+        margin-left: -0.3em;
+    }
+
+    li.submenu-md.dropend a[role="button"].show::after {
+        transform: unset;
+    }
+
+    li.submenu-md.dropend a[role="button"]::after {
         position: absolute;
-        top: 0;
-        left: 100%;
-    }
-    .dropend .dropdown-toggle{
-        margin-left: .5em;
+        right: 0.4em;
     }
 }
+
+
 
 /*
 -----------------------------------------
@@ -365,6 +346,11 @@ footer{
 Product List
 -----------------------------------------
 */
+
+.product-card img{
+    height: 250px;
+}
+
 
 /*
 -----------------------------------------
