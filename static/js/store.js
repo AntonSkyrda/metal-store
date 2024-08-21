@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnDropends.forEach(dropend => {
         dropend.addEventListener('click', event => {
             bootstrap.Dropdown.getOrCreateInstance(dropend.parentNode).toggle();
-            dropend.querySelector('.btn-dropend-span').classList.toggle('dropend-active');
+            dropend.classList.toggle('dropend-active');
         })
     })
 })
