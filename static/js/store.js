@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const searchForm = document.getElementById('search-form');
 if(searchForm.querySelector('p')) {
-    searchForm.querySelector('p').querySelector('input').classList.add('form-control', 'me-2');
+    searchForm.querySelector('p').classList.add('me-2');
+    searchForm.querySelector('p').querySelector('input').classList.add('form-control');
 }
 

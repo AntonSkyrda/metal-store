@@ -180,6 +180,9 @@ header{
     padding-top: var(--header-height);
 }
 
+.navbar-brand{
+    width: 5rem;
+}
 .btn-span {
     border: none;
     background: transparent;
