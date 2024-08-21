@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnDropends.forEach(dropend => {
         dropend.addEventListener('click', event => {
             bootstrap.Dropdown.getOrCreateInstance(dropend.parentNode).toggle();
-            dropend.querySelector('.btn-dropend-span').classList.toggle('dropend-active');
+            dropend.classList.toggle('dropend-active');
         })
     })
 })
@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const searchForm = document.getElementById('search-form');
 if(searchForm.querySelector('p')) {
-    searchForm.querySelector('p').querySelector('input').classList.add('form-control', 'me-2');
+    searchForm.querySelector('p').classList.add('me-2');
+    searchForm.querySelector('p').querySelector('input').classList.add('form-control');
 }
 
