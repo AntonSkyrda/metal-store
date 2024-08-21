@@ -180,47 +180,24 @@ header{
     padding-top: var(--header-height);
 }
 
+.navbar-brand{
+    width: 5rem;
+}
 .btn-span {
     border: none;
     background: transparent;
+    color: black;
 }
 
 .dropend-active {
    transform: rotate(90deg);
 }
 
-@media (min-width: 768px) {
-    li.submenu-md ul.dropdown-menu[data-bs-popper] {
-        border-width: var(--bs-dropdown-border-width);
-        padding-top: var(--bs-dropdown-padding-y);
-        padding-bottom: var(--bs-dropdown-padding-y);
-        margin-top: -0.5em;
-    }
-
-    li.submenu-md ul.dropdown-menu[data-bs-popper] li {
-        margin-left: 0;
-    }
-
-    li.submenu-md button {
-        display: inline-flex;
-        align-items: center;
-    }
-
-    li.submenu-md.dropend ul.dropdown-menu[data-bs-popper] {
-        margin-left: -0.3em;
-    }
-
-    li.submenu-md.dropend a[role="button"].show::after {
-        transform: unset;
-    }
-
-    li.submenu-md.dropend a[role="button"]::after {
-        position: absolute;
-        right: 0.4em;
+@media (max-width: 767px) {
+    .dropend-active {
+        transform: rotate(90deg);
     }
 }
-
-
 
 /*
 -----------------------------------------

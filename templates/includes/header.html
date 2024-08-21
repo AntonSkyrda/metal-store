@@ -3,7 +3,9 @@
 <header class="mb-0 bg-white">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="/">Navbar</a>
+            <a class="navbar-brand" href="/">
+                <img src="{% static '/images/vector-stal.svg' %}" alt="logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +19,7 @@
                                 Товари
                             </a>
                             <button class="btn-span btn-dropdown">
-                                <span class="dropdown-toggle btn-dropend-span"></span>
+                                <span class="dropdown-toggle btn-dropdown-span"></span>
                             </button>
                         </p>
                         {% if categories %}
