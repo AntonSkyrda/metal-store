@@ -25,7 +25,7 @@
                         {% if categories %}
                         <ul class="dropdown-menu">
                             {% for category in categories %}
-                            <li class="nav-item dropend submenu submenu-md">
+                            <li class="nav-item dropend submenu">
                                 <p class="d-inline-flex">
                                     <a class="dropdown-item" href="{% url 'store:product-list' %}">{{ category.name }}</a>
                                     <button class="btn-span btn-dropend">
