@@ -1,5 +1,4 @@
 'use strict';
-debugger
 //Form logic
 const form = document.getElementById('contact-form');
 
@@ -112,8 +111,6 @@ const categoriesCheckbox = document.getElementById('id_category');
 const categoriesCheckboxInputs = categoriesCheckbox.querySelectorAll('input');
 const categoriesCheckboxLabels = categoriesCheckbox.querySelectorAll('label');
 
-console.log(categoriesCheckboxInputs);
-
 categoriesCheckboxInputs.forEach(checkbox => {
     checkbox.classList.add('form-check-input');
 })
@@ -122,7 +119,3 @@ categoriesCheckboxLabels.forEach(checkbox => {
     checkbox.classList.add('form-check-label');
 })
 
-// categoriesCheckbox.classList.add('d-flex', 'flex-row');
-// categoriesCheckbox.querySelectorAll('div').forEach(div => {
-//     div.classList.add('me-3');
-// });
