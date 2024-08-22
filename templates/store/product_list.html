@@ -1,25 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="productsList container mt-5 mb-5">
-    <div class="row row-cols-1 row-cols-lg-4 g-4 g-lg-3">
-        {% if product_list %}
-        {% for product in product_list %}
-        <article class="col">
-            <div class="card product-card text-center">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                <div class="card-body">
-                    <h5 class="card-title pb-3">{{ product.name }}</h5>
-                    <p class="card-text pb-2 text-start"></p>
-                    <p class="card-text pb-4 text-start"><span>{{ product.price }}</span></p>
-                    <button class="main-button">
-                        <a href="{% url 'store:product-detail' product.id %}">Show More</a>
-                    </button>
-                </div>
-            </div>
-        </article>
-        {% endfor %}
-        {% endif %}
+  <section class="productsList container mt-5 mb-5">
+    <div class="checkBox">
+      <form method="get" action="{% url 'store:product-list' %}">
+        {{ category_form.as_p }}
+        <button type="submit">Показати</button>
+      </form>
+
     </div>
-</section>
+    <div class="row row-cols-1 row-cols-lg-4 g-4 g-lg-3">
+      {% if product_list %}
+        {% for product in product_list %}
+          <article class="col">
+            <div class="card product-card text-center">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}">
+              <div class="card-body">
+                <h5 class="card-title pb-3">{{ product.name }}</h5>
+                <p class="card-text pb-2 text-start"></p>
+                <p class="card-text pb-4 text-start"><span>{{ product.price }}</span></p>
+                <button class="main-button">
+                  <a href="{% url 'store:product-detail' product.id %}">Show More</a>
+                </button>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
 {% endblock %}
