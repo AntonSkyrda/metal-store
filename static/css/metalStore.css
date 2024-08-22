@@ -57,9 +57,7 @@ header, nav, section, article, aside, footer, hgroup {
 html,body{
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: clamp(
-        .5rem, 5vh, 1rem
-    );
+    font-size: clamp(0.8rem, 0.76rem + 0.2vw, 1rem);
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -87,7 +85,7 @@ custom vars
 -----------------------------------------
 */
 :root{
-    --header-height: clamp(2rem, 10vh, 5rem);
+    --header-height: clamp(2rem, 1.2rem + 4vh, 6rem);
 
     --primaryColor: #0d6efd;
     --accentColor: #f8f9fa;
@@ -178,10 +176,11 @@ Header
 
 header{
     padding-top: var(--header-height);
+    font-size: 1.1rem;
 }
 
 .navbar-brand{
-    width: 5rem;
+    width: 7rem;
 }
 .btn-span {
     border: none;
@@ -197,6 +196,11 @@ header{
     .dropend-active {
         transform: rotate(90deg);
     }
+}
+
+.submenu {
+    margin: 0;
+    padding: .235rem;
 }
 
 /*

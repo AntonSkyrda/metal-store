@@ -25,8 +25,9 @@
                 Наши менеджери передзвонять Вам протягом дня та з радістю нададуть Вам всю необхідну
                 інформацію, чи допоможуть вирішити будь-які питання.</p>
         </div>
-        <div class='row justify-content-center align-items-center text-center'>
-            <address class="col-lg-3 col-12 text-lg-start text-center">
+        <article class="container">
+        <div class='row justify-content-between align-items-start text-center'>
+            <address class="col-lg-4 col-12 text-lg-end text-center">
                 <h3 class="mb-4">Наші контакти</h3>
                 <table class='d-inline-block text-start text-primary'>
                     {% if phone_numbers %}
@@ -43,7 +44,7 @@
                     {% endif %}
                 </table>
             </address>
-            <form action="/" method="post" id="contact-form" class="contact-form col-lg-4 col-12">
+            <form action="/" method="post" id="contact-form" class="contact-form col-lg-6 col-12">
                 <h3>Заповніть форму і ми вам передзвонимо протягом дня.</h3>
                 {% csrf_token %}
                 <fieldset id="input-fields">
@@ -63,6 +64,7 @@
                 <button type="submit">Надіслати</button>
             </form>
         </div>
+        </article>
     </section>
     <section id="about" class='bg-tertiary'>
         <div class="row justify-content-center pb-3 m-0 section-header">
