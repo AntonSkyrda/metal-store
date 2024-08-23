@@ -1,32 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="productsList container mt-5 mb-5">
-    <div class="checkBox">
-      <form method="get" action="{% url 'store:product-list' %}">
-        {{ category_form.as_p }}
-        <button type="submit">Показати</button>
-      </form>
-
-    </div>
-    <div class="row row-cols-1 row-cols-lg-4 g-4 g-lg-3">
-      {% if product_list %}
-        {% for product in product_list %}
-          <article class="col">
+  <section class="products-list container-fluid bg-white">
+    <div class="row">
+      <div class="col-lg-1 col-0"></div>
+      <aside class="check-box col-lg-1 col-3 m-0">
+        <form method="get" class="" action="{% url 'store:product-list' %}">
+          <h3 class="mb-3">Категорії</h3>
+          <hr>
+          {{ category_form.as_p }}
+          <button class="btn btn-outline-primary mt-3" type="submit">Показати</button>
+        </form>
+      </aside>
+      <article class="col-lg-10 col-9 p-sm-1 position-relative">
+        <ul class="row row-cols-1 row-cols-lg-4 g-4 g-lg-3 p-sm-1 position-absolute overflow-y-auto product-box">
+          {% if product_list %}
+          {% for product in product_list %}
+          <li class="col">
             <div class="card product-card text-center">
               <img src="{{ product.image.url }}" alt="{{ product.name }}">
               <div class="card-body">
                 <h5 class="card-title pb-3">{{ product.name }}</h5>
                 <p class="card-text pb-2 text-start"></p>
                 <p class="card-text pb-4 text-start"><span>{{ product.price }}</span></p>
-                <button class="main-button">
-                  <a href="{% url 'store:product-detail' product.id %}">Show More</a>
-                </button>
+                  <a type="button" class="btn btn-outline-primary" href="{% url 'store:product-detail' product.id %}">Show More</a>
               </div>
             </div>
-          </article>
-        {% endfor %}
-      {% endif %}
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </article>
     </div>
   </section>
 {% endblock %}

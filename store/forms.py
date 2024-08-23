@@ -20,6 +20,6 @@ class CategorySearchForm(forms.Form):
     category = forms.ModelMultipleChoiceField(
         queryset=Category.objects.all(),
         required=False,
-        label="Категорія",
+        label="",
         widget=forms.CheckboxSelectMultiple
     )

@@ -1,5 +1,4 @@
 'use strict';
-
 //Form logic
 const form = document.getElementById('contact-form');
 
@@ -105,4 +104,18 @@ if(searchForm.querySelector('p')) {
     searchForm.querySelector('p').classList.add('me-2');
     searchForm.querySelector('p').querySelector('input').classList.add('form-control');
 }
+
+
+const categoriesCheckbox = document.getElementById('id_category');
+
+const categoriesCheckboxInputs = categoriesCheckbox.querySelectorAll('input');
+const categoriesCheckboxLabels = categoriesCheckbox.querySelectorAll('label');
+
+categoriesCheckboxInputs.forEach(checkbox => {
+    checkbox.classList.add('form-check-input');
+})
+
+categoriesCheckboxLabels.forEach(checkbox => {
+    checkbox.classList.add('form-check-label');
+})
 
