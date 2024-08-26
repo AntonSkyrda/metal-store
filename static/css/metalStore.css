@@ -63,7 +63,7 @@ html,body{
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: var(--accentColor);
+    background-color: white;
 }
 
 a{
@@ -103,7 +103,7 @@ TOP header
 */
 
 .top-header{
-    z-index: 1;
+    z-index: 2;
     background-color: black;
 }
 
@@ -157,6 +157,7 @@ Header
 */
 
 header{
+    z-index: 1;
     padding-top: var(--header-height);
     font-size: 1.1rem;
 }
@@ -219,6 +220,10 @@ main section{
     margin: 0;
     padding: 1rem;
     line-height: 2.5rem;
+}
+
+#categories, #about {
+    background-color: var(--accentColor);
 }
 
 /*
