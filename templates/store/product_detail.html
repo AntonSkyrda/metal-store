@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
 {% block content %}
 <section class="product-detail container my-3">
     <div class="row">
@@ -8,7 +11,7 @@
         <article class="col-lg-7">
             <div class="product-main-description px-2">
                 <h6 class="product-category text-bold my-3">Категорія: {{ product.category }}</h6>
-                <h1 class="product-title text-bold my-3">{{ product.title }}</h1>
+                <h1 class="product-title text-bold my-3">{{ product.name }}</h1>
                 <p class="product-price mb-5">{{ product.price }}</p>
                 <div class="d-flex flex-row mb-5">
                     <div class="">

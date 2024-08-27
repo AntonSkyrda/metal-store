@@ -107,15 +107,16 @@ if(searchForm.querySelector('p')) {
 
 
 const categoriesCheckbox = document.getElementById('id_category');
+if (categoriesCheckbox) {
+    const categoriesCheckboxInputs = categoriesCheckbox.querySelectorAll('input');
+    const categoriesCheckboxLabels = categoriesCheckbox.querySelectorAll('label');
 
-const categoriesCheckboxInputs = categoriesCheckbox.querySelectorAll('input');
-const categoriesCheckboxLabels = categoriesCheckbox.querySelectorAll('label');
+    categoriesCheckboxInputs.forEach(checkbox => {
+        checkbox.classList.add('form-check-input');
+    })
 
-categoriesCheckboxInputs.forEach(checkbox => {
-    checkbox.classList.add('form-check-input');
-})
-
-categoriesCheckboxLabels.forEach(checkbox => {
-    checkbox.classList.add('form-check-label');
-})
+    categoriesCheckboxLabels.forEach(checkbox => {
+        checkbox.classList.add('form-check-label');
+    })
+}
 
